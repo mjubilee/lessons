@@ -1,4 +1,4 @@
-package io.jubilee.AG003SpringSecurity;
+package io.jubilee.AG004SpringSecurityJWT;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -10,29 +10,33 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import io.jubilee.AG003SpringSecurity.domain.Driver;
-import io.jubilee.AG003SpringSecurity.domain.DriverRepository;
-import io.jubilee.AG003SpringSecurity.domain.Owner;
-import io.jubilee.AG003SpringSecurity.domain.OwnerRepository;
-import io.jubilee.AG003SpringSecurity.domain.Vehicle;
-import io.jubilee.AG003SpringSecurity.domain.VehicleRepository;
+import io.jubilee.AG004SpringSecurityJWT.domain.AppUser;
+import io.jubilee.AG004SpringSecurityJWT.domain.AppUserRepository;
+import io.jubilee.AG004SpringSecurityJWT.domain.Driver;
+import io.jubilee.AG004SpringSecurityJWT.domain.DriverRepository;
+import io.jubilee.AG004SpringSecurityJWT.domain.Owner;
+import io.jubilee.AG004SpringSecurityJWT.domain.OwnerRepository;
+import io.jubilee.AG004SpringSecurityJWT.domain.Vehicle;
+import io.jubilee.AG004SpringSecurityJWT.domain.VehicleRepository;
 
 @SpringBootApplication
-public class Ag003SpringSecurityApplication implements CommandLineRunner {
+public class Ag004SpringSecurityJWTApplication implements CommandLineRunner {
 
-	private static final Logger logger = LoggerFactory.getLogger(Ag003SpringSecurityApplication.class);
+	private static final Logger logger = LoggerFactory.getLogger(Ag004SpringSecurityJWTApplication.class);
 	private final VehicleRepository repository;
 	private final OwnerRepository ownerRepository;
 	private final DriverRepository driverRepository;
+	private final AppUserRepository userRepository;
 	
-	public Ag003SpringSecurityApplication(VehicleRepository repo, OwnerRepository ownerRepo, DriverRepository driverRepo) {
+	public Ag004SpringSecurityJWTApplication(VehicleRepository repo, OwnerRepository ownerRepo, DriverRepository driverRepo, AppUserRepository userRepo) {
 		this.repository = repo;
 		this.ownerRepository = ownerRepo;
 		this.driverRepository = driverRepo;
+		this.userRepository = userRepo;
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(Ag003SpringSecurityApplication.class, args);
+		SpringApplication.run(Ag004SpringSecurityJWTApplication.class, args);
 		logger.info("Application started");
 	}
 	
@@ -80,6 +84,17 @@ public class Ag003SpringSecurityApplication implements CommandLineRunner {
         for (Vehicle vehicle : repository.findAll()) {
             logger.info("brand: {}, model: {}", vehicle.getBrand(), vehicle.getModel());
         }
+        
+
+//      $2a represents the algorithm version, and $10 represents the strength of the algorithm. 
+//      The default strength of Spring Security’s BcryptPasswordEncoder class is 10. 
+//      bcrypt generates a random salt in hashing, so the hashed result is always different.
+      userRepository.save(new AppUser("user", "$2a$10$NVM0n8ElaRgg7zWO1CxUdei7vWoPg91Lz2aYavh9.f9q0e4bRadue","USER"));
+      userRepository.save(new AppUser("admin", "$2a$10$8cjz47bjbR4Mn8GMg9IZx.vyjhLXR/SKKMSZ9.mP9vpMu0ssKi8GW", "ADMIN"));
+      
+      for (AppUser user : userRepository.findAll()) {
+          logger.info("Username: {}, password: {}", user.getUsername(), user.getPassword());
+      }
     }
 
 }

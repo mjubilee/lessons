@@ -1,5 +1,4 @@
-package io.jubilee.AG003SpringSecurity;
-
+package io.jubilee.AG002SpringREST;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
