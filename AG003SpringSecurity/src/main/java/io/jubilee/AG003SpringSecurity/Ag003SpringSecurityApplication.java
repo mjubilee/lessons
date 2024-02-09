@@ -10,6 +10,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import io.jubilee.AG003SpringSecurity.domain.AppUser;
+import io.jubilee.AG003SpringSecurity.domain.AppUserRepository;
 import io.jubilee.AG003SpringSecurity.domain.Driver;
 import io.jubilee.AG003SpringSecurity.domain.DriverRepository;
 import io.jubilee.AG003SpringSecurity.domain.Owner;
@@ -24,11 +26,16 @@ public class Ag003SpringSecurityApplication implements CommandLineRunner {
 	private final VehicleRepository repository;
 	private final OwnerRepository ownerRepository;
 	private final DriverRepository driverRepository;
+	private final AppUserRepository appUserrepository;
 	
-	public Ag003SpringSecurityApplication(VehicleRepository repo, OwnerRepository ownerRepo, DriverRepository driverRepo) {
+	public Ag003SpringSecurityApplication(VehicleRepository repo
+			, OwnerRepository ownerRepo
+			, DriverRepository driverRepo
+			, AppUserRepository apRepo) {
 		this.repository = repo;
 		this.ownerRepository = ownerRepo;
 		this.driverRepository = driverRepo;
+		this.appUserrepository = apRepo;
 	}
 
 	public static void main(String[] args) {
@@ -80,6 +87,11 @@ public class Ag003SpringSecurityApplication implements CommandLineRunner {
         for (Vehicle vehicle : repository.findAll()) {
             logger.info("brand: {}, model: {}", vehicle.getBrand(), vehicle.getModel());
         }
+        
+        // Username: user, password: user
+        appUserrepository.save(new AppUser("user", "$2a$10$NVM0n8ElaRgg7zWO1CxUdei7vWoPg91Lz2aYavh9.f9q0e4bRadue","USER"));
+        // Username: admin, password: admin
+        appUserrepository.save(new AppUser("admin","$2a$10$8cjz47bjbR4Mn8GMg9IZx.vyjhLXR/SKKMSZ9.mP9vpMu0ssKi8GW", "ADMIN"));
     }
 
 }

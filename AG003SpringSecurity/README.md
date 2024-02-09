@@ -20,4 +20,10 @@ http://localhost:9090/api/owners/search/findByFirstname?firstname=Mary
 
 OpenAPI documentation is configured in this project it can be access through
 http://localhost:9090/swagger-ui/index.html
+
 http://localhost:9090/api-docs ( JSON format )
+
+
+To test the security, the following is the credential
+Username: user, password: user
+Username: admin, password: admin

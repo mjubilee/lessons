@@ -1,4 +1,4 @@
-package io.jubilee.AG004SpringSecurityJWT;
+package io.jubilee.AG005SpringSecurityCORS;
 
 import java.io.IOException;
 import java.io.PrintWriter;

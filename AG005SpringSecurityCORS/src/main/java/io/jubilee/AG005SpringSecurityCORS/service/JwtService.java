@@ -1,4 +1,4 @@
-package io.jubilee.AG004SpringSecurityJWT.service;
+package io.jubilee.AG005SpringSecurityCORS.service;
 
 import java.security.Key;
 import java.util.Date;

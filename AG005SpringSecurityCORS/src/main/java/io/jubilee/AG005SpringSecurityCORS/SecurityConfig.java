@@ -1,4 +1,4 @@
-package io.jubilee.AG004SpringSecurityJWT;
+package io.jubilee.AG005SpringSecurityCORS;
 
 
 import java.util.Arrays;
@@ -20,7 +20,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import io.jubilee.AG004SpringSecurityJWT.service.UserDetailsServiceImpl;
+import io.jubilee.AG005SpringSecurityCORS.service.UserDetailsServiceImpl;
 import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
@@ -69,6 +69,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     	http.csrf((csrf) -> csrf.disable())
+    	.cors(withDefaults())
     	.sessionManagement((sessionManagement) -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
     	.authorizeHttpRequests((authorizeHttpRequests) -> authorizeHttpRequests
     			.requestMatchers(HttpMethod.POST,"/login")
@@ -80,7 +81,25 @@ public class SecurityConfig {
     	
         return http.build();
     }
+    
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+    	UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        CorsConfiguration config = new CorsConfiguration();
+        
+     // localhost:3000 is allowed
+//        config.setAllowedOrigins(Arrays.asList ("http://localhost:3000"));
 
+        config.setAllowedOrigins(Arrays.asList("*"));
+        config.setAllowedMethods(Arrays.asList("*"));
+        config.setAllowedHeaders(Arrays.asList("*"));
+        
+        config.setAllowCredentials(false);
+        config.applyPermitDefaultValues();
+        source.registerCorsConfiguration("/**", config);
+        
+        return source;
+    }
 }
 
 

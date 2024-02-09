@@ -1,4 +1,4 @@
-package io.jubilee.AG004SpringSecurityJWT.domain;
+package io.jubilee.AG005SpringSecurityCORS.domain;
 
 import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;

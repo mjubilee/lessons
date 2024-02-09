@@ -1,4 +1,4 @@
-package io.jubilee.AG004SpringSecurityJWT.service;
+package io.jubilee.AG005SpringSecurityCORS.service;
 
 import java.util.Optional;
 
@@ -8,8 +8,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import io.jubilee.AG004SpringSecurityJWT.domain.AppUser;
-import io.jubilee.AG004SpringSecurityJWT.domain.AppUserRepository;
+import io.jubilee.AG005SpringSecurityCORS.domain.AppUser;
+import io.jubilee.AG005SpringSecurityCORS.domain.AppUserRepository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {

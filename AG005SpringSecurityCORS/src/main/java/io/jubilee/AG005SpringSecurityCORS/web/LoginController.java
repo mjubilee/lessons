@@ -1,4 +1,4 @@
-package io.jubilee.AG004SpringSecurityJWT.web;
+package io.jubilee.AG005SpringSecurityCORS.web;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.jubilee.AG004SpringSecurityJWT.domain.AccountCredentials;
-import io.jubilee.AG004SpringSecurityJWT.service.JwtService;
+import io.jubilee.AG005SpringSecurityCORS.domain.AccountCredentials;
+import io.jubilee.AG005SpringSecurityCORS.service.JwtService;
 
 @RestController
 public class LoginController {

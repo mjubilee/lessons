@@ -1,4 +1,4 @@
-package io.jubilee.AG004SpringSecurityJWT;
+package io.jubilee.AG005SpringSecurityCORS;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -10,27 +10,27 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import io.jubilee.AG004SpringSecurityJWT.domain.AppUser;
-import io.jubilee.AG004SpringSecurityJWT.domain.AppUserRepository;
-import io.jubilee.AG004SpringSecurityJWT.domain.Driver;
-import io.jubilee.AG004SpringSecurityJWT.domain.DriverRepository;
-import io.jubilee.AG004SpringSecurityJWT.domain.Owner;
-import io.jubilee.AG004SpringSecurityJWT.domain.OwnerRepository;
-import io.jubilee.AG004SpringSecurityJWT.domain.Vehicle;
-import io.jubilee.AG004SpringSecurityJWT.domain.VehicleRepository;
+import io.jubilee.AG005SpringSecurityCORS.domain.AppUser;
+import io.jubilee.AG005SpringSecurityCORS.domain.AppUserRepository;
+import io.jubilee.AG005SpringSecurityCORS.domain.Driver;
+import io.jubilee.AG005SpringSecurityCORS.domain.DriverRepository;
+import io.jubilee.AG005SpringSecurityCORS.domain.Owner;
+import io.jubilee.AG005SpringSecurityCORS.domain.OwnerRepository;
+import io.jubilee.AG005SpringSecurityCORS.domain.Vehicle;
+import io.jubilee.AG005SpringSecurityCORS.domain.VehicleRepository;
 
 @SpringBootApplication
-public class Ag004SpringSecurityJWTApplication implements CommandLineRunner {
+public class Ag005SpringSecurityCORSApplication implements CommandLineRunner {
 	
 
 	
-	private static final Logger logger = LoggerFactory.getLogger(Ag004SpringSecurityJWTApplication.class);
+	private static final Logger logger = LoggerFactory.getLogger(Ag005SpringSecurityCORSApplication.class);
 	private final VehicleRepository repository;
 	private final OwnerRepository ownerRepository;
 	private final DriverRepository driverRepository;
 	private final AppUserRepository appUserrepository;
 	
-	public Ag004SpringSecurityJWTApplication(VehicleRepository repo
+	public Ag005SpringSecurityCORSApplication(VehicleRepository repo
 			, OwnerRepository ownerRepo
 			, DriverRepository driverRepo
 			, AppUserRepository apRepo) {
@@ -41,7 +41,7 @@ public class Ag004SpringSecurityJWTApplication implements CommandLineRunner {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(Ag004SpringSecurityJWTApplication.class, args);
+		SpringApplication.run(Ag005SpringSecurityCORSApplication.class, args);
 		logger.info("Application started");
 	}
 	

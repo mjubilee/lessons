@@ -1,4 +1,4 @@
-package io.jubilee.AG004SpringSecurityJWT;
+package io.jubilee.AG005SpringSecurityCORS;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -7,7 +7,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import io.jubilee.AG004SpringSecurityJWT.service.JwtService;
+import io.jubilee.AG005SpringSecurityCORS.service.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

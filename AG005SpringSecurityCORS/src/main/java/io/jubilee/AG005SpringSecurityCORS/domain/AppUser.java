@@ -1,4 +1,4 @@
-package io.jubilee.AG004SpringSecurityJWT.domain;
+package io.jubilee.AG005SpringSecurityCORS.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
