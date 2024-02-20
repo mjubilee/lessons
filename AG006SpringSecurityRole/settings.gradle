@@ -1,0 +1,3 @@
+rootProject.name = 'AG006SpringSecurityRole'
+include('app')
+project(":app").name = 'AG006SpringSecurityRole'
