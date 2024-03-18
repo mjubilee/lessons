@@ -29,6 +29,7 @@ public class Ag001SpringJpaApplication implements CommandLineRunner {
 //		this.repository = null;
 //	}
 	
+
 	public Ag001SpringJpaApplication(VehicleRepository repo, OwnerRepository ownerRepo, DriverRepository driverRepo) {
 		this.repository = repo;
 		this.ownerRepository = ownerRepo;
